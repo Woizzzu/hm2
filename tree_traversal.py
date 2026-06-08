@@ -7,7 +7,6 @@ class TreeNode:
         self.right = right
 
 def reverse_postorder_recursive(root: Optional[TreeNode]) -> List[int]:
-    """Обратный постордер: root -> right -> left"""
     result = []
     
     def traverse(node):
@@ -21,7 +20,6 @@ def reverse_postorder_recursive(root: Optional[TreeNode]) -> List[int]:
     return result
 
 def reverse_postorder_iterative(root: Optional[TreeNode]) -> List[int]:
-    """Итеративный обратный постордер: root -> right -> left"""
     if not root:
         return []
     
@@ -32,7 +30,6 @@ def reverse_postorder_iterative(root: Optional[TreeNode]) -> List[int]:
         node = stack.pop()
         result.append(node.val)      # root
         
-        # Сначала left, потом right — чтобы right обработался первым (LIFO)
         if node.left:
             stack.append(node.left)
         if node.right:
